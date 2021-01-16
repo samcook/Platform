@@ -1,18 +1,18 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Platform", "Platform\Platform.csproj", "{31199C34-A7F0-4D69-B2CF-E9CE05262618}"
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Platform", "Platform\Platform.csproj", "{31199C34-A7F0-4D69-B2CF-E9CE05262618}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Platform.Xml.Serialization", "Platform.Xml.Serialization\Platform.Xml.Serialization.csproj", "{CBB73076-7381-4FDD-907F-7097A8AB04E6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Platform.Xml.Serialization", "Platform.Xml.Serialization\Platform.Xml.Serialization.csproj", "{CBB73076-7381-4FDD-907F-7097A8AB04E6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Platform.Tests", "..\tests\Platform.Tests\Platform.Tests.csproj", "{48BBE7EA-88F9-4A46-9EED-ADFF60427BF5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Platform.Xml.Serialization.Tests", "..\tests\Platform.Xml.Serialization.Tests\Platform.Xml.Serialization.Tests.csproj", "{8682A3CE-4664-4535-B31D-8A7FB7C04266}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{6462CBA9-FD4F-4BF5-9846-866601FB1A31}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{416DAEAC-774F-4D5A-8911-E6C51CF804EC}"
 	ProjectSection(SolutionItems) = preProject
-		.nuget\NuGet.Config = .nuget\NuGet.Config
-		.nuget\NuGet.exe = .nuget\NuGet.exe
-		.nuget\NuGet.targets = .nuget\NuGet.targets
+		Directory.Build.props = Directory.Build.props
 	EndProjectSection
 EndProject
 Global
@@ -40,5 +40,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {06629BBC-CC21-4C3B-9532-62AADE813EBB}
 	EndGlobalSection
 EndGlobal
