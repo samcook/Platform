@@ -1,21 +1,25 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-	<PropertyGroup>
-		<TargetFrameworks>net462;net472;netstandard2.0</TargetFrameworks>
+  <PropertyGroup>
+    <TargetFrameworks>net462;net472;netstandard2.0</TargetFrameworks>
 
-		<PackageId>Platform.NET</PackageId>
-		<Title>Platform.NET System Library</Title>
-		<Description>
-			Platform.NET
+    <PackageId>Platform.NET</PackageId>
+    <Title>Platform.NET System Library</Title>
+    <Description>
+      Platform.NET
 
-			A cross-platform library of useful classes and extensions for C# and .NET.
-		</Description>
-		<PackageTags>task text utility string extensions base64 ntp invocationqueue utility weakreference meteringstream expressionvisitor linq ringbuffer fifobuffer circular</PackageTags>
-	</PropertyGroup>
+      A cross-platform library of useful classes and extensions for C# and .NET.
+    </Description>
+    <PackageTags>task text utility string extensions base64 ntp invocationqueue utility weakreference meteringstream expressionvisitor linq ringbuffer fifobuffer circular</PackageTags>
+  </PropertyGroup>
 
-	<ItemGroup>
-		<PackageReference Include="System.Configuration.ConfigurationManager" Version="7.0.0" />
-		<PackageReference Include="System.Reflection.Emit.Lightweight" Version="4.7.0" />
-	</ItemGroup>
+  <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="7.0.0" />
+    <PackageReference Include="System.Reflection.Emit.Lightweight" Version="4.7.0" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net462' Or '$(TargetFramework)' == 'net472' ">
+    <Reference Include="System.Configuration" />
+  </ItemGroup>
 
 </Project>
