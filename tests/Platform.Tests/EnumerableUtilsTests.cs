@@ -24,9 +24,9 @@ namespace Platform.Tests
 		[Test]
 		public void Test_Fold_String()
 		{
-			var array = new [] { "a", "b", "c" };
+			var array = new[] { "a", "b", "c" };
 
-			Assert.AreEqual("a,b,c", array.Fold((x,y) => x + "," + y));
+			Assert.AreEqual("a,b,c", array.Fold((x, y) => x + "," + y));
 		}
 	}
 }

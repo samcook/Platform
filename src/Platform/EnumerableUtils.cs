@@ -117,7 +117,7 @@ namespace Platform
 			}
 		}
 
-#if NET461 || NET462 || NET47 // System.Linq.Enumerable has this from .NET Framework 4.7.2 onwards, and .NET Core 1.0 onwards
+#if !(NET472_OR_GREATER || NETSTANDARD || NET) // System.Linq.Enumerable has this from .NET Framework 4.7.2 onwards, and .NET Core 1.0 onwards
 		public static IEnumerable<T> Prepend<T>(this IEnumerable<T> values,  T value)
 		{
 			yield return value;
