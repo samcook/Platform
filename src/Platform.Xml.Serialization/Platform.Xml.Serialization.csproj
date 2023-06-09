@@ -1,21 +1,28 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-	<PropertyGroup>
-		<TargetFrameworks>net462;net472;netstandard2.0</TargetFrameworks>
+  <PropertyGroup>
+    <TargetFrameworks>net462;net472;netstandard2.0</TargetFrameworks>
 
-		<PackageId>Platform.Xml.Serialization</PackageId>
-		<Title>Platform.NET XmlSerialization Library</Title>
-		<Description>A cross-platform, clean and extensible XML serializer for .NET</Description>
-		<PackageTags>platform xml serialization serializer</PackageTags>
+    <PackageId>Platform.Xml.Serialization</PackageId>
+    <Title>Platform.NET XmlSerialization Library</Title>
+    <Description>A cross-platform, clean and extensible XML serializer for .NET</Description>
+    <PackageTags>platform xml serialization serializer</PackageTags>
 
-	</PropertyGroup>
+  </PropertyGroup>
 
-	<ItemGroup>
-		<ProjectReference Include="..\Platform\Platform.csproj" />
-	</ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
 
-	<ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
-		<PackageReference Include="System.Drawing.Common" Version="7.0.0" />
-	</ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Platform\Platform.csproj" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
+    <PackageReference Include="System.Drawing.Common" Version="7.0.0" />
+  </ItemGroup>
 
 </Project>
