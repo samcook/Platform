@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>netstandard2.0</TargetFrameworks>
+		<TargetFrameworks>net461;netstandard2.0</TargetFrameworks>
 
 		<PackageId>Platform.Xml.Serialization</PackageId>
 		<Title>Platform.NET XmlSerialization Library</Title>
@@ -14,8 +14,8 @@
 		<ProjectReference Include="..\Platform\Platform.csproj" />
 	</ItemGroup>
 
-	<ItemGroup>
-	  <Folder Include="Properties" />
+	<ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
+		<PackageReference Include="System.Drawing.Common" Version="7.0.0" />
 	</ItemGroup>
 
 </Project>

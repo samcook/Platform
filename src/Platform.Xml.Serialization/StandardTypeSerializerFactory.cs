@@ -48,6 +48,10 @@ namespace Platform.Xml.Serialization
             {
                 return new GuidSerializer(supportedType, memberInfo, cache, options);
             }
+            else if (supportedType == typeof(Color))
+            {
+                return new ColorSerializer(supportedType, memberInfo, cache, options);
+            }
             else if (supportedType == typeof(DateTime))
             {
                 return new DateTimeTypeSerializer(memberInfo, cache, options);
