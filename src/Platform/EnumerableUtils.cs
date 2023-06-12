@@ -117,8 +117,13 @@ namespace Platform
 			}
 		}
 
-#if !(NET472_OR_GREATER || NETSTANDARD || NET) // System.Linq.Enumerable has this from .NET Framework 4.7.2 onwards, and .NET Core 1.0 onwards
+		// System.Linq.Enumerable has an extension method with this signature from .NET Framework 4.7.2 onwards, and .NET Core 1.0 onwards.
+		// For later versions of .NET we retain the static method, but remove the extension method signature to avoid ambiguous reference errors.
+#if !(NET472_OR_GREATER || NETSTANDARD || NET)
 		public static IEnumerable<T> Prepend<T>(this IEnumerable<T> values,  T value)
+#else
+		public static IEnumerable<T> Prepend<T>(IEnumerable<T> values, T value)
+#endif
 		{
 			yield return value;
 
@@ -127,7 +132,6 @@ namespace Platform
 				yield return obj;
 			}
 		}
-#endif
 
 		public static IEnumerable<T> PrependUnlessNull<T>(this IEnumerable<T> values, T value)
 		{
