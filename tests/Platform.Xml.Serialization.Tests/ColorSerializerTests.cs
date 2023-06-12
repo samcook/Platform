@@ -50,9 +50,12 @@ namespace Platform.Xml.Serialization.Tests
         {
             var serializer = new ColorSerializer(typeof(Color), null, null, null);
 
-            var result = serializer.Deserialize(s, null);
+            var result = (Color) serializer.Deserialize(s, null);
 
-            Assert.AreEqual(expected, result);
+            Assert.AreEqual(expected.A, result.A);
+            Assert.AreEqual(expected.R, result.R);
+            Assert.AreEqual(expected.G, result.G);
+            Assert.AreEqual(expected.B, result.B);
         }
     }
 }
