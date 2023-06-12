@@ -1,0 +1,49 @@
+name: Build, Test and Pack
+
+on:
+  push:
+
+  pull_request:
+    branches:
+      - master
+
+  workflow_dispatch:
+  
+jobs:
+  build-test-pack:
+    name: Build, Test and Pack
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: |
+            6.0.x
+          source-url: https://nuget.pkg.github.com/samcook/index.json
+        env:
+          NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+
+      - name: Build
+        run: dotnet build src/Platform.NET.sln --configuration Release -p CI_BUILD=true
+
+      - name: Test
+        run: dotnet test src/Platform.NET.sln --configuration Release --no-build
+
+      - name: Pack
+        run: dotnet pack src/Platform.NET.sln --configuration Release --no-build -o packages
+
+      - name: Store packages as artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: packages
+          path: |
+            packages/*.nupkg
+            packages/*.snupkg
+
+      - name: Publish to GitHub Packages
+        #if: github.ref == 'refs/heads/master'
+        run: |
+          dotnet nuget push packages/*.nupkg
